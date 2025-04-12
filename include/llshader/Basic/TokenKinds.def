@@ -1,0 +1,53 @@
+#ifndef TOK
+#define TOK(ID)
+#endif
+#ifndef PUNCTUATOR
+#define PUNCTUATOR(ID, SP) TOK(ID)
+#endif
+#ifndef KEYWORD
+#define KEYWORD(ID, FLAG) TOK(kw_##ID)
+#endif
+
+TOK(unknown)
+TOK(eof)
+TOK(integer)
+TOK(floating_point)
+TOK(string_literal)
+TOK(identifier)
+
+KEYWORD(int, SIM_TYPE)
+KEYWORD(float, SIM_TYPE)
+KEYWORD(string, SIM_TYPE)
+
+KEYWORD(point, COMP_TYPE)
+KEYWORD(vector, COMP_TYPE)
+KEYWORD(normal, COMP_TYPE)
+KEYWORD(color, COMP_TYPE)
+KEYWORD(matrix, COMP_TYPE)
+
+KEYWORD(void, VOID_TYPE)
+
+KEYWORD(err, ERROR_TYPE)
+
+KEYWORD(if, COND_TYPE)
+KEYWORD(else, COND_TYPE)
+
+KEYWORD(while, LOOP_TYPE)
+KEYWORD(do, LOOP_TYPE)
+KEYWORD(for, LOOP_TYPE)
+
+KEYWORD(break, LOOPMOD_TYPE)
+KEYWORD(continue, LOOPMOD_TYPE)
+
+TOK(bin_op)
+TOK(bit_op)
+TOK(comp_op)
+TOK(log_op)
+TOK(un_op)
+TOK(incdec_op)
+TOK(assignment)
+TOK(punctuator)
+
+#undef KEYWORD
+#undef PUNCTUATOR
+#undef TOK
